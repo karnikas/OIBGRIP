@@ -1,0 +1,59 @@
+// KARNIKA SINGH
+
+package oasis_infobyte;
+
+import java.util.Scanner;
+
+public class User_Interface {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        long id;
+        int pin;
+        int choice;
+        int amount = 500;
+        History obj1 = new History();
+        With obj2 = new With();
+        Dep obj3 = new Dep();
+        Transfer obj4 = new Transfer();
+
+        System.out.println(" Please Enter your Account Number : ");
+        id = sc.nextInt();
+        if (id != 123456789) {
+            System.out.println("Plese enter a valid account number \n Thank you");
+        } else {
+            System.out.println("Please Enter your Pin : ");
+            pin = sc.nextInt();
+            if (pin != 2020) {
+                System.out.println("Invalid Credentials \n Thank you");
+            } else {
+                do {
+                    System.out.println("WELCOME TO ATM SERVICE");
+                    System.out.println("\n 1. Enter 1 for Transaction History.\n 2. Enter 2 for Withdraw. \n 3. Enter 3 for Deposit. \n 4. Enter 4 for Transfer. \n 5. Enter 5 for Quit. ");
+                    System.out.println("\n Please Enter your choice here : ");
+                    choice = sc.nextInt();
+                    switch (choice) {
+                        case 1:
+                            obj1.Transaction_History();
+                            break;
+                        case 2:
+                            amount = obj2.Withdraw(amount);
+                            break;
+
+                        case 3:
+                            amount = obj3.Deposit(amount);
+                            break;
+                        case 4:
+                            amount = obj4.Transfer(amount);
+                            break;
+
+                        case 5: {
+                            System.out.println("Thank for using the ATM service");
+                            System.exit(0);
+                        }
+                    }
+                } while (choice != 5);
+            }
+        }
+    }
+}
