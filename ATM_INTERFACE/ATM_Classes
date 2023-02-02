@@ -1,0 +1,107 @@
+// KARNIKA SINGH
+
+package oasis_infobyte;
+
+import java.util.Scanner;
+  
+class History {
+    public void Transaction_History(){
+        System.out.println("Transaction History");
+        System.out.println("\n Transaction History is : null");
+        System.out.println("Press 0 to go back");
+        Scanner sc=new Scanner(System.in);
+        int back = sc.nextInt();
+        do {
+            if (back == 0){
+                return;
+            }else
+                System.out.println("Wrong input");
+        }while (back != 0);
+    }
+}
+class With {
+    public int Withdraw(int amount){
+        Scanner sc=new Scanner(System.in);
+        System.out.println("\n Enter the amount to Withdraw : ");
+        int w=sc.nextInt();
+
+        if(w % 100 !=0)
+        {
+            System.out.println("\n Please enter amount in multiple of 100.");
+        }
+
+        else if(w > amount)
+        {
+            System.out.println("\n Insufficient balance!");
+        }
+        else
+        {
+            amount=amount-w;
+            System.out.println("Your current balance is : "+amount);
+        }
+        System.out.println("Press 0 to go back");
+        int back = sc.nextInt();
+        do {
+            if (back == 0){
+                return amount;
+            }else
+                System.out.println("Wrong input");
+        }while (back != 0);
+        return amount;
+    }
+}
+class Dep {
+    public int  Deposit(int amount){
+        Scanner sc=new Scanner(System.in);
+        System.out.println("\n Enter the amount to deposit :  ");
+        int d=sc.nextInt();
+        amount=amount+d;
+        System.out.println("Your current balance is : "+amount);
+        System.out.println("Press 0 to go back");
+        int back = sc.nextInt();
+        do {
+            if (back == 0){
+                return amount;
+            }else
+                System.out.println("Wrong input");
+        }while (back != 0);
+
+        return amount;
+    }
+}
+class Transfer{
+    public int Transfer(int amount){
+        System.out.println("Transaction to the account");
+
+        Scanner sr=new Scanner(System.in);
+        System.out.println("\n Enter your Name : ");
+        String receipent = sr.nextLine();
+        System.out.println("\n Enter amount you wish to transfer : ");
+        int amount1=sr.nextInt();
+        if(amount >= amount1)
+        {
+            if(amount1<=10000)
+            {
+                amount -=amount1;
+                System.out.println("\n Successfully transfered to : "+receipent);
+                String str=amount1 + " : Rs transfered to : " + receipent + "\n ";
+                System.out.println("Your current balance is : "+amount);
+            }
+            else {
+                System.out.println("\n Invalid transfer ! Limit is 150000.00 only");
+            }
+        }
+        else{
+            System.out.println("\n Insufficient Balance !");
+        }
+        System.out.println("Press 0 to go back");
+        Scanner sc=new Scanner(System.in);
+        int back = sc.nextInt();
+        do {
+            if (back == 0){
+                return amount;
+            }else
+                System.out.println("Wrong input");
+        }while (back != 0);
+        return amount;}
+}
